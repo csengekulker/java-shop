@@ -28,6 +28,7 @@ public class MariadbDatabase implements Database {
     public Connection tryConnect() throws SQLException {
         String url = "jdbc:mariadb://localhost:3306/" + database;
         Connection con = DriverManager.getConnection(url, username, password);
+        System.out.println(con);
         return con;
     }
     public void close(Connection con) {

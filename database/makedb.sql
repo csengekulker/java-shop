@@ -1,4 +1,4 @@
-
+drop database if exists shop;
 create database shop
 character set utf8
 collate utf8_hungarian_ci;
