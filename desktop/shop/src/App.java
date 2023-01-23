@@ -2,24 +2,27 @@ import models.DataService;
 import models.MariadbDatabase;
 import models.Product;
 import models.Restapi;
+import views.MainView;
 
 import java.util.ArrayList;
 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
-public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Adatbázis elérés");
 
-        DataService dataService = new DataService(
-            new MariadbDatabase(
-            "shop",
-            "shop",
-            "titok")
-        );
+public class App extends Application {
+    public void start(Stage stage) throws Exception {
+        MainView mv = new MainView();
+        Scene scene = new Scene(mv, 500, 500, Color.BLACK);
 
-        ArrayList<Product> products = dataService.getProducts();
-
-        new Restapi();
+        stage.setScene(scene);
+        stage.show();
         
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
