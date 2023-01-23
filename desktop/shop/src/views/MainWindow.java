@@ -6,15 +6,16 @@ import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 
 public class MainWindow extends Application{
-    Scene scene;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    public MainWindow() {
+    }
+
+    public void start(Stage stage) throws Exception {
         MainView mv = new MainView();
-        scene = new Scene(mv, 500, 500, Color.BLACK);
+        Scene scene = new Scene(mv, 500, 500, Color.BLACK);
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.show();
         
     }
 

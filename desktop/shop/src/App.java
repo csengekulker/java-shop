@@ -1,6 +1,7 @@
 import models.DataService;
 import models.MariadbDatabase;
 import models.Product;
+import models.Restapi;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,8 @@ public class App {
         );
 
         ArrayList<Product> products = dataService.getProducts();
+
+        new Restapi();
         
     }
 }
