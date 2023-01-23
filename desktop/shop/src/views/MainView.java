@@ -15,6 +15,7 @@ public class MainView extends VBox {
   
   Label productsLabel;
   DataService service;
+  Restapi restapi;
   ArrayList<Product> products;
   TableView<Product> tableView;
 
@@ -28,6 +29,7 @@ public class MainView extends VBox {
   }
 
   private void initData() {
+    restapi = new Restapi();
     service = new DataService(
             new MariadbDatabase(
             "shop",
@@ -35,7 +37,7 @@ public class MainView extends VBox {
             "titok")
     );
 
-    products = service.getProducts();
+    products = restapi.getProducts();
   }
 
   private void initTable() {
@@ -74,6 +76,6 @@ public class MainView extends VBox {
 
   private ObservableList<Product> getProducts() {
     
-    return FXCollections.observableArrayList(service.getProducts());
+    return FXCollections.observableArrayList(restapi.getProducts());
   }
 }

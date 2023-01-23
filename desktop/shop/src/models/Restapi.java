@@ -6,7 +6,12 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class Restapi {
     
@@ -21,14 +26,14 @@ public class Restapi {
         try {
             text = tryGetProductsAsString();
         } catch (IOException e) {
-            System.err.println("A REST API lekérdezése sikertelen" + e);
+            System.err.println("A REST API lekérdezése sikertelen");
         }
 
         return text;
     }
 
     public String tryGetProductsAsString() throws IOException {
-        String host = "http://localhost:3000/api/";
+        String host = "http://[::1]:3000/";
         String endpoint = "products";
 
         URL url = new URL(host + endpoint);
@@ -57,5 +62,19 @@ public class Restapi {
         }
 
         return text.toString();
+    }
+
+    public ArrayList<Product> getProducts() {
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+        String text = getProductsAsString();
+        Product[] productArray = gson.fromJson(text, Product[].class);
+
+        ArrayList<Product> productList = new ArrayList<>(
+            Arrays.asList(productArray)
+        );
+
+        return productList;
     }
 }
