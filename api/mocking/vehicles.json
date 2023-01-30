@@ -1,0 +1,22 @@
+{
+    "vehicles": [
+        {
+            "name": "CPU",
+            "licensePlate": "aa33",
+            "brand": "017",
+            "price": 8
+        },
+        {
+            "name": "egér",
+            "licensePlate": "bb66",
+            "brand": "017",
+            "price": 4.2
+        },
+        {
+            "name": "egér",
+            "licensePlate": "cc44",
+            "brand": "017",
+            "price": 4.2
+        }
+    ]
+}
